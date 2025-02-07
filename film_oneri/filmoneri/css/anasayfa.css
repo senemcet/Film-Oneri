@@ -1,0 +1,99 @@
+.stream_2im2 {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 230px !important;
+}
+
+.spec_1imi img,
+.stream_2im2 img {
+    width: 100%; /* Görselin genişliği alanı doldurur */
+    height: 250px; /* Sabit bir yükseklik belirler */
+    object-fit: cover; /* Görseli çerçeveye sığdırır, taşan kısmı keser */
+    border-radius: 5px; /* Köşeleri yuvarlatır (isteğe bağlı) */
+}
+
+.stream_2im:hover .stream_2im2 {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 150px 150px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.carousel-caption p {
+    width: 45%;
+}
+
+.carousel-indicators {
+    bottom: 0;
+}
+
+.center_home .carousel-indicators [data-bs-target] {
+    background-color: #e90101;
+}
+
+.release {
+    border-left: 3px solid #e90101;
+}
+
+.rating {
+    border: 2px solid #65ee5b;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.spec_1imi1l .span_2 {
+    padding: 5px 5px 2px 5px;
+}
+
+.spec_1imi1 {
+    padding-top: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.spec_1imi1l h6 {
+    border: 1px solid #fff;
+}
+
+.spec_1im:hover .spec_1imi1 {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.spec_1im1 .span_1 {
+    border: 1px solid #fff;
+    padding: 5px 5px 2px 5px;
+}
+
+/* Yeni eklenen CSS */
+.spec_1im2 {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+    display: none; /* Varsayılan olarak gizle */
+}
+
+.spec_1im:hover .spec_1im2 {
+    background-color: rgba(0, 0, 0, 0.8); /* Arkaplan rengi değişimi */
+    display: flex; /* Görüntüle ve ortala */
+    justify-content: center;
+    align-items: center;
+}
+
+.spec_1im2 i {
+    font-size: 50px; /* İkon boyutu */
+    color: white; /* İkon rengi */
+    transition: transform 0.3s ease-in-out;
+}
+
+.spec_1im:hover .spec_1im2 i {
+    transform: scale(1.2); /* Üzerine gelindiğinde büyüt */
+}

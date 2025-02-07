@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FILMBOX</title>
+    <!-- Flask ile uyumlu statik dosya bağlantıları -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/ana.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="main clearfix position-relative">
+        <div class="main_1 clearfix position-absolute top-0 w-100">
+            <section id="header">
+                <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky" style="color: red;">
+                    <div class="container-xl">
+                        <a class="navbar-brand fs-2 p-0 fw-bold text-white m-0 me-5" href="{{ url_for('anasayfa') }}" >
+                            <i class="fa fa-youtube-play me-1 col_red"></i>FILMBOX
+                        </a>                        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mb-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ url_for('anasayfa') }}">ANASAYFA</a>
+                                </li>
+                                 
+                            </ul>
+                            <ul class="navbar-nav mb-0 ms-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle dropdown_search" href="#" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    <ul class="dropdown-menu drop_1 drop_o p-3" aria-labelledby="navbarDropdown"
+                                        data-bs-popper="none">
+                                        <li>
+                                            <div class="input-group p-2">
+                                                <input type="text" class="form-control border-0"
+                                                    placeholder="Search Here">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary bg-transparent border-0 fs-5"
+                                                        type="button">
+                                                        <i class="fa fa-search col_red"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- Kullanıcı durumu -->
+                                {% if user_name %}
+                                    <!-- Oturum açmış kullanıcı için -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-user fs-4 align-middle me-1 lh-1 col_red"></i> Hoş geldiniz, {{ user_name }}
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                            <li><a class="dropdown-item" href="{{ url_for('cikis') }} ">Çıkış Yap</a></li>
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <!-- Oturum açmamış kullanıcı için -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false" style="color: red;">
+                                            <i class="fa fa-user fs-4 align-middle me-1 lh-1 col_red"></i> HESAP
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                            <li><a class="dropdown-item" href="{{ url_for('kayitol') }}">Kayıt Ol</a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('giris') }}">Giriş Yap</a></li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                            </ul>                            
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div> <br><br><br>
+        <section id="account" class="p_3">
+            <div class="container mt-5">
+                <h1 class="text-center">{{ film.title }}</h1>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h3>Film Bilgileri</h3>
+                        <ul>
+                            <li><strong>Türler:</strong> {{ film.genres }}</li>
+                            <li><strong>Süre:</strong> {{ film.runtime }} dakika</li>
+                            <li><strong>Ortalama Oy:</strong> {{ film.vote_average }}</li>
+                            <li><strong>Popülerlik:</strong> {{ film.popularity }}</li>
+                            <li><strong>Özet:</strong> {{ film.overview }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Fragman</h3>
+                        <iframe width="100%" height="315" src="{{ trailer_url }}" 
+                            title="{{ film.title }} Trailer" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="film-öneriler" class="p_3">
+            <div class="container-xl">
+                <div class="row stream_1">
+                    <div class="col-md-12">
+                        <h6 class="col_red">BENZER FİLMLER |</h6>
+                        <h1 class="mb-0">Bu Filmi Beğendiysen...</h1>
+                    </div>
+                </div>
+                <div class="row stream_2 mt-4">
+                    {% for film in önerilen_filmler %}
+                    <div class="col-md-3 pe-0">
+                        <div class="stream_2im clearfix position-relative">
+                            <div class="stream_2im1 clearfix">
+                                <div class="grid clearfix">
+                                    <figure class="effect-jazz mb-0">
+                                        <a href="{{ url_for('film_detay', film_id=film.id) }}">
+                                            <img src="{{ film.img if film.img else url_for('static', filename='img/default.jpg') }}" class="w-100" alt="{{ film.title }}">
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="stream_2im2 position-absolute w-100 h-100 p-3 top-0 clearfix">
+                                <h6 class="font_14 col_red">{{ film.genres }}</h6>
+                                <h4 class="text-white">{{ film.title }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>        
+    </body>
+</html>

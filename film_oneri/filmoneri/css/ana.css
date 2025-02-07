@@ -1,0 +1,371 @@
+
+body {
+    font-family: 'Overpass', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #e90101;
+}
+
+a:focus {
+    text-decoration: none;
+    color: #e90101;
+}
+
+.button {
+    background: #e90101;
+    color: #fff;
+    display: inline-block;
+    transition: 0.3s;
+    padding: 23px 40px 20px 40px !important;
+    border: 1px solid #e90101;
+}
+
+.button:hover {
+    background: none;
+    color: #fff !important;
+}
+
+.button_1 {
+    background: #e90101;
+    color: #fff;
+    display: inline-block;
+    transition: 0.3s;
+    padding: 23px 40px 20px 40px !important;
+    border: 1px solid #e90101;
+}
+
+.button_1:hover {
+    background: none;
+    color: #e90101 !important;
+}
+
+.button_2 {
+    background: #111;
+    color: #fff;
+    display: inline-block;
+    transition: 0.3s;
+    padding: 23px 40px 20px 40px !important;
+    border: 1px solid #111;
+}
+
+.button_2:hover {
+    background: #e90101;
+    color: #fff !important;
+    border: 1px solid #e90101;
+}
+
+.grid figure {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+figure.effect-jazz figcaption::after,
+figure.effect-jazz img {
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-jazz:hover img {
+    -webkit-transform: scale3d(1.05, 1.05, 1);
+    transform: scale3d(1.05, 1.05, 1);
+}
+
+.col_red {
+    color: #e90101;
+}
+
+.col_green {
+    color: #65ee5b;
+}
+
+.bg_red {
+    background: #e90101;
+}
+
+.bg_col {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bg_image {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.bg_dark {
+    background-color: #111;
+}
+
+hr {
+    opacity: 1;
+    background-color: #e901011f;
+}
+
+.font_14 {
+    font-size: 14px;
+}
+
+.font_8 {
+    font-size: 8px;
+}
+
+.font_12 {
+    font-size: 12px;
+}
+
+.font_80 {
+    font-size: 80px;
+}
+
+.font_60 {
+    font-size: 60px;
+}
+
+.font_50 {
+    font-size: 50px;
+}
+
+.line {
+    height: 3px !important;
+    width: 80px;
+    background-color: #e90101;
+}
+
+.p_3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/*********************header****************/
+.main_1 {
+    z-index: 2;
+}
+
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+#header .nav-link {
+    font-size: 17px;
+    color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#header .nav-link:hover {
+    color: #e90101;
+}
+
+#header .nav-link:focus {
+    color: #e90101;
+}
+
+#header .active {
+    color: #e90101;
+    font-weight: bold;
+}
+
+.main_account {
+    background-image: url(../img/34.jpg);
+    background-position: center;
+}
+
+.account_1l .form-control {
+    height: 60px;
+}
+
+.input-group-text {
+    border-color: #e901011f;
+}
+
+.main_contact {
+    background-image: url('../img/34.jpg');
+    background-position: center;
+    background-size: cover;
+    /* Arka planın tüm alanı kaplamasını sağlar */
+    min-height: 500px;
+}
+
+.contact_1 {
+    box-shadow: 0px 0px 7px 0px #e901011f;
+    padding: 20px 10px;
+}
+
+.drop_1 {
+    min-width: 220px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 24px !important;
+}
+
+.drop_1 a {
+    font-size: 17px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+}
+
+.drop_1 a:hover {
+    background: none;
+    color: #e90101;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.sticky {
+    top: -40px;
+    transform: translateY(40px);
+    transition: transform .3s;
+}
+
+.sticky .drop_1 {
+    margin-top: 9px !important;
+}
+
+.drop_1 .input-group {
+    border: 1px solid #e901011f;
+}
+
+.dropdown_search::after {
+    display: none;
+}
+
+.drop_o {
+    min-width: 280px;
+}
+
+.drop_o1 li .span_1 {
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.act {
+    background: #e90101 !important;
+    border: 1px solid #e90101 !important;
+    color: #fff !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #e901011f;
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border-color: #e901011f;
+}
+
+.form-control {
+    border-color: #e901011f;
+    box-shadow: none;
+}
+
+.form-select {
+    border-color: #e901011f;
+    box-shadow: none;
+}
+
+
+.center_blog {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 200px;
+    padding-bottom: 120px;
+    min-height: 500px;
+}
+
+
+.contact_h_1r .form-control {
+    height: 60px;
+    font-size: 16px;
+}
+
+.contact_h_1r .form-select {
+    height: 60px;
+    font-size: 16px;
+    color: #777;
+}
+
+.contact_h_1 {
+    display: flex;
+    justify-content: center;
+}
+
+.contact_h_1r {
+    width: 100%;
+    max-width: 500px;
+    /* Form genişliğini sınırlandırmak için */
+    margin: 0 auto;
+    /* Ortalamak için */
+    padding: 30px;
+}
+
+.account_1 {
+    display: flex;
+    justify-content: center;
+    /* Yatay olarak ortalar */
+    align-items: center;
+    /* Dikey olarak ortalar */
+    height: 100vh;
+    /* Sayfa yüksekliğini kapsayacak şekilde ayarlar */
+}
+
+.account_1l {
+    width: 100%;
+    max-width: 500px;
+    /* Form genişliğini sınırlandırmak için */
+    padding: 30px;
+    background-color: #fff;
+    /* Form arka plan rengini beyaz yap */
+    box-shadow: 0px 0px 7px 0px #e901011f;
+    /* Hafif bir gölge ekler */
+}
+
+.account_1r {
+    display: none;
+    /* Sağdaki boş alanı gizler */
+}

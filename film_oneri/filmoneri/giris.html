@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FILMBOX - Giriş Yap</title>
+    <!-- Flask ile uyumlu statik dosya bağlantıları -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/ana.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="main clearfix position-relative">
+        <div class="main_1 clearfix position-absolute top-0 w-100">
+            <section id="header">
+                <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+                    <div class="container-xl">
+                        <a class="navbar-brand fs-2 p-0 fw-bold text-white m-0 me-5" href="{{ url_for('anasayfa') }}">
+                            <i class="fa fa-youtube-play me-1 col_red"></i>FILMBOX
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mb-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="{{ url_for('anasayfa') }}">ANASAYFA</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav mb-0 ms-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-user fs-4 align-middle me-1 lh-1 col_red"></i> HESAP
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                        <li><a class="dropdown-item" href="{{ url_for('kayitol') }}">Kayıt Ol</a></li>
+                                        <li><a class="dropdown-item" href="{{ url_for('giris') }}">Giriş Yap</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div>
+    </div>
+
+    <div class="main_account clearfix">
+        <section id="center" class="center_blog">
+            <div class="container-xl">
+                <div class="row center_o1">
+                    <div class="col-md-12">
+                        <h2 class="text-white">GİRİŞ YAP</h2>
+                        <h6 class="mb-0 mt-3 fw-normal col_red">
+                            <a class="text-light" href="{{ url_for('anasayfa') }}">Anasayfa</a>
+                            <span class="mx-2 text-muted">/</span> Giriş Yap
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="account" class="p_3">
+        <div class="container-xl">
+            <div class="row account_1">
+                <div class="account_1l">
+                    <h2>Hesabınıza Giriş Yapın</h2>
+                    
+                    <!-- Flash mesajlarını göster -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <div class="alert alert-dismissible fade show mt-3">
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+
+                    <!-- Giriş Formu -->
+                    <form action="{{ url_for('giris') }}" method="POST">
+                        <input class="form-control mt-4 bg-transparent rounded-0" name="email" placeholder="E-Posta"
+                            type="email" required>
+                        <input class="form-control mt-3 bg-transparent rounded-0" name="password" placeholder="Şifre"
+                            type="password" required>
+                        <div class="form-check mt-3">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Beni Hatırla</label>
+                        </div>
+                        <h6 class="text-uppercase text-center mt-4">
+                            <button class="button_1 d-block btn btn-primary w-100" type="submit">Giriş Yap</button>
+                        </h6>
+                    </form>
+
+                    <p class="mt-3 text-center">
+                        Hesabınız yok mu? <a href="{{ url_for('kayitol') }}" class="col_red">Kayıt Olun</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

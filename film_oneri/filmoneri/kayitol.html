@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FILMBOX</title>
+    <!-- Flask ile uyumlu statik dosya bağlantıları -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/ana.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="main clearfix position-relative">
+        <div class="main_1 clearfix position-absolute top-0 w-100">
+            <section id="header">
+                <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+                    <div class="container-xl">
+                        <a class="navbar-brand fs-2 p-0 fw-bold text-white m-0 me-5" href="{{ url_for('anasayfa') }}">
+                            <i class="fa fa-youtube-play me-1 col_red"></i>FILMBOX
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mb-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="{{ url_for('anasayfa') }}">ANASAYFA</a>
+                                </li>
+                                
+                            </ul>
+                            <ul class="navbar-nav mb-0 ms-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle dropdown_search" href="#" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    <ul class="dropdown-menu drop_1 drop_o p-3" aria-labelledby="navbarDropdown"
+                                        data-bs-popper="none">
+                                        <li>
+                                            <div class="input-group p-2">
+                                                <input type="text" class="form-control border-0"
+                                                    placeholder="Search Here">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary bg-transparent border-0 fs-5"
+                                                        type="button">
+                                                        <i class="fa fa-search col_red"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-user fs-4 align-middle me-1 lh-1 col_red"></i> HESAP
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                        <li><a class="dropdown-item" href="{{ url_for('kayitol') }}">Kayıt Ol</a></li>
+                                        <li><a class="dropdown-item" href="{{ url_for('giris') }}">Giriş Yap</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div>
+        <div class="main_account clearfix">
+            <section id="center" class="center_blog">
+                <div class="container-xl">
+                    <div class="row center_o1">
+                        <div class="col-md-12">
+                            <h2 class="text-white">KAYIT OL</h2>
+                            <h6 class="mb-0 mt-3 fw-normal col_red">
+                                <a class="text-light" href="{{ url_for('anasayfa') }}">Hesap</a>
+                                <span class="mx-2 text-muted">/</span>Kayıt Ol
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section id="account" class="p_3">
+        <div class="container-xl">
+            <div class="row account_1">
+                <div class="account_1l">
+                    <h2>Üye Olun</h2>
+
+                    <!-- Flask hata mesajlarını göstermek için -->
+                    {% if hata %}
+                    <div class="alert alert-danger mt-3">{{ hata }}</div>
+                    {% endif %}
+
+                    <!-- Form düzenlendi ve Flask ile uyumlu hale getirildi -->
+                    <form action="{{ url_for('kayitol') }}" method="post">
+                        <input class="form-control mt-4 bg-transparent rounded-0" name="ad_soyad" placeholder="AD SOYAD" type="text" required>
+                        <input class="form-control mt-3 bg-transparent rounded-0" name="eposta" placeholder="EPOSTA" type="email" required>
+                        <input class="form-control mt-3 bg-transparent rounded-0" name="dogum_tarihi" placeholder="DOĞUM TARİHİ" type="date" required>
+                        <input class="form-control mt-3 bg-transparent rounded-0" name="sifre" placeholder="ŞİFRENİZ" type="password" required>
+                        <div class="form-check mt-3">
+                            <input type="checkbox" class="form-check-input" id="checkmeout0" required>
+                            <label class="form-check-label" for="checkmeout0">Kayıt koşullarını kabul ediyorum.</label>
+                        </div>
+                        <h6 class="text-uppercase text-center mt-4">
+                            <button type="submit" class="button_1 d-block btn btn-primary">Kaydol</button>
+                        </h6>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
